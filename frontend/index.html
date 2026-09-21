@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIH 2026 - National Land Acquisition Portal</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🏛️ Real-Time Land Acquisition & Management System (SIH26016)</div>
+        <div class="status-badge" id="api-status">Connecting to Backend...</div>
+    </header>
+
+    <div class="main-container">
+        <!-- WebGIS Map View -->
+        <div id="map"></div>
+
+        <!-- Officer Operations & Analytics Sidebar -->
+        <div class="sidebar">
+            <h2>Land Acquisition Officer Portal</h2>
+            
+            <div class="card">
+                <h3>Update Statutory Stage</h3>
+                <form id="update-form">
+                    <label>ULPIN (Bhu-Aadhaar):</label>
+                    <input type="text" id="ulpin-input" placeholder="e.g. 12345678901234" required>
+
+                    <label>New Legal Milestone:</label>
+                    <select id="stage-input">
+                        <option value="NOTIFICATION_11">Sec 11 Notification</option>
+                        <option value="OBJECTION_HEARING">Sec 15 Objection Hearing</option>
+                        <option value="AWARD_DECLARED">Sec 19 Award Declared</option>
+                        <option value="POSSESSION_TAKEN">Sec 38 Possession Taken</option>
+                        <option value="COURT_STAY">Active Civil Court Stay</option>
+                    </select>
+
+                    <label>Officer ID / DSC Key:</label>
+                    <input type="text" id="officer-input" value="LAO-JAIPUR-001" required>
+
+                    <button type="submit" id="submit-btn">e-Sign & Update Milestone</button>
+                </form>
+                <div id="form-msg"></div>
+            </div>
+
+            <div class="card">
+                <h3>Acquisition Stage Legend</h3>
+                <div class="legend-list">
+                    <div class="legend-item"><span class="box yellow"></span> Sec 11 Notification</div>
+                    <div class="legend-item"><span class="box orange"></span> Objection Hearing</div>
+                    <div class="legend-item"><span class="box blue"></span> Award Declared</div>
+                    <div class="legend-item"><span class="box green"></span> Possession Taken</div>
+                    <div class="legend-item"><span class="box red"></span> Active Court Stay</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
